@@ -29,18 +29,19 @@ const userRouter = require('./user');
 // // or, in one line: router.use('/wiki', require('./wiki'));
 
 
+
 router.get('/', function (req, res, next) {
   //console.log('submit a new page to the DB');
     res.send('got to GET /wiki/');
 });
 
-router.post('/', function (req, res, next) {
+router.post('/wiki/', function (req, res, next) {
  // console.log('submit a new page to the DB');
-   res.send('got to POST /wiki/');
- //  res.redirect('/');
+  res.send('got to POST /wiki/');
+  //res.redirect('/');
 });
 
-router.get('/add', function (req, res, next) {
+router.get('/wiki/add/', function (req, res, next) {
 //  console.log('retrieve the "add a page" form');
    res.render('addpage');
   // res.send('got to GET /wiki/add');
