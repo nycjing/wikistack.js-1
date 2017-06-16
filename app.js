@@ -23,15 +23,14 @@ app.get('/', function(req, res){
 });
 
 
-// modles.User.sync({})
-// .then(function(){
-//   return models.Page.sync({})
-// })
-models.db.sync({})
+// modles.User.sync({});
+// models.Page.sync({});
+
+models.sync({force: true})
 .then(function () {
   app.listen(1987, function(){
-  console.log('listening on port 1987');
-});
+    console.log('listening on port 1987');
+  });
 })
 .catch(console.error);
 
