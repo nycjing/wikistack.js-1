@@ -2,12 +2,13 @@
 const express = require( 'express' );
 const sequelize = require('sequelize');
 const app = express();
-const router = express.Router();
+//const router = express.Router();
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const models = require('./models');
+const routes= require('./routes');
 
 const env = nunjucks.configure('views', {noCache: true});
 app.set('view engine', 'html');
@@ -18,11 +19,11 @@ app.use(bodyParser.urlencoded({ extended: true })); // for HTML form submits
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-app.get('/', function(req, res){
-  res.send('hello world');
-});
+// app.get('/', function(req, res){
+//   res.send('hello world');
+// });
 
-
+app.use('/', routes);
 // modles.User.sync({});
 // models.Page.sync({});
 
@@ -36,4 +37,4 @@ models.sync({force: true})
 
 
 
-module.exports = router;
+//module.exports = router;

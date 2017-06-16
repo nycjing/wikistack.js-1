@@ -10,30 +10,33 @@ const Page = db.define('page', {
         type: Sequelize.STRING,
         defaultValue: 'title here',
         allowNull: false
+
     },
     urlTitle: {
         type: Sequelize.STRING,
         allowNull: false
+
     },
     content: {
-        type: Sequelize.TEXT.apply,
+        type: Sequelize.TEXT,
         defaultValue: 'content here',
         allowNull: false
     },
     status: {
-        type: Sequelize.ENUM('open', 'closed'),
-
+        type: Sequelize.ENUM('open','close')
     },
-     date: {
+    date: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
+    
     }
-},  {
+}, 
+  {
       getURL: {
         urlName () {
           return '/wiki/' + urlTitle;
         }
-      },
+      }
 
       });
 
