@@ -1,14 +1,13 @@
 const express = require('express');
-const app = express();
-const router = express.Router();
-const wikiRouter = require('./wiki');
-const userRouter = require('./user');
+// const app = express();
+ const router = express.Router();
+// const wikiRouter = require('./wiki');
+// const userRouter = require('./user');
 const models = require('../models');
 const Page = models.Page;
 const User = models.User;
-module.exports = router;
 // ...
-router.use('/wiki', wikiRouter);
+//router.use('/wiki', wikiRouter);
 // or, in one line: router.use('/wiki', require('./wiki'));
 router.get('/', function(req, res, next) {
   res.send('got to GET /wiki/');
@@ -28,6 +27,8 @@ router.post('/wiki/', function (req, res, next) {
 });
 
 router.get('/add', function(req, res, next) {
-  res.send('got to GET /wiki/add');
+  //res.send('got to GET /wiki/add');
+   res.render('addpage');
 });
 
+module.exports = router;

@@ -5,12 +5,13 @@ const app = express();
 const router = express.Router();
 const wikiRouter = require('./wiki');
 const userRouter = require('./user');
-const models = require('../models');
-const Page = models.Page;
-const User = models.User;
+// const models = require('../models');
+// const Page = models.Page;
+// const User = models.User;
 // ...
+router.use('/wiki', wikiRouter);
 
-
+//router.use('/', router);
 // customizing the behavior of router.param()
 // router.param(function(param, option) {
 //   return function (req, res, next, val) {
@@ -35,7 +36,8 @@ const User = models.User;
 
 router.get('/', function (req, res, next) {
   //console.log('submit a new page to the DB');
-    res.redirect('/');
+ //   res.redirect('/');
+ res.send('home page');
 });
 
 // router.post('/wiki/', function (req, res, next) {
@@ -52,10 +54,10 @@ router.get('/', function (req, res, next) {
 
 // });
 
-router.get('/wiki/add/', function (req, res, next) {
-//  console.log('retrieve the "add a page" form');
-   res.render('addpage');
-  // res.send('got to GET /wiki/add');
-});
+// router.get('/wiki/add/', function (req, res, next) {
+// //  console.log('retrieve the "add a page" form');
+//    res.render('addpage');
+//   // res.send('got to GET /wiki/add');
+// });
 
 module.exports = router;
