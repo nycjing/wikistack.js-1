@@ -5,6 +5,9 @@ const app = express();
 const router = express.Router();
 const wikiRouter = require('./wiki');
 const userRouter = require('./user');
+const models = require('../models');
+const Page = models.Page;
+const User = models.User;
 // ...
 
 
@@ -32,14 +35,22 @@ const userRouter = require('./user');
 
 router.get('/', function (req, res, next) {
   //console.log('submit a new page to the DB');
-    res.send('got to GET /wiki/');
+    res.redirect('/');
 });
 
-router.post('/wiki/', function (req, res, next) {
- // console.log('submit a new page to the DB');
-  res.send('got to POST /wiki/');
-  //res.redirect('/');
-});
+// router.post('/wiki/', function (req, res, next) {
+//  // console.log('submit a new page to the DB');
+//  let page = Page.build({
+//    title: req.body.title,
+//    content: req.body.content
+//  });
+//  page.save()
+//  .then(function(result) {
+//    console.log(result);
+//    res.redirect('/');
+//  })
+
+// });
 
 router.get('/wiki/add/', function (req, res, next) {
 //  console.log('retrieve the "add a page" form');
