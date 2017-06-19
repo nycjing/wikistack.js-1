@@ -28,7 +28,7 @@ app.use('/', routes);
 // modles.User.sync({});
 // models.Page.sync({});
 
-models.sync({force: true})
+models.db.sync({force: true})
 .then(function () {
   app.listen(1987, function(){
     console.log('listening on port 1987');
