@@ -33,31 +33,12 @@ router.use('/wiki', wikiRouter);
 // // or, in one line: router.use('/wiki', require('./wiki'));
 
 
-
 router.get('/', function (req, res, next) {
   //console.log('submit a new page to the DB');
  //   res.redirect('/');
  res.send('home page');
 });
 
-// router.post('/wiki/', function (req, res, next) {
-//  // console.log('submit a new page to the DB');
-//  let page = Page.build({
-//    title: req.body.title,
-//    content: req.body.content
-//  });
-//  page.save()
-//  .then(function(result) {
-//    console.log(result);
-//    res.redirect('/');
-//  })
 
-// });
-
-// router.get('/wiki/add/', function (req, res, next) {
-// //  console.log('retrieve the "add a page" form');
-//    res.render('addpage');
-//   // res.send('got to GET /wiki/add');
-// });
 
 module.exports = router;

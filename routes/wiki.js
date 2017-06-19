@@ -4,8 +4,11 @@ const express = require('express');
 // const wikiRouter = require('./wiki');
 // const userRouter = require('./user');
 const models = require('../models');
+console.log(models)
 const Page = models.Page;
 const User = models.User;
+
+console.log(Page)
 // ...
 //router.use('/wiki', wikiRouter);
 // or, in one line: router.use('/wiki', require('./wiki'));
@@ -13,8 +16,9 @@ router.get('/', function(req, res, next) {
   res.send('got to GET /wiki/');
 });
 
-router.post('/wiki/', function (req, res, next) {
+router.post('/', function (req, res, next) {
  // console.log('submit a new page to the DB');
+ console.log(Page);
  let page = Page.build({
    title: req.body.title,
    content: req.body.content
